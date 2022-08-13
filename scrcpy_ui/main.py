@@ -2,7 +2,6 @@ import queue
 import sys
 import threading
 import traceback
-from argparse import ArgumentParser
 from typing import Optional
 
 import numpy as np
@@ -13,8 +12,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 
 import scrcpy
 from legend.legend import Legend
-
-from ui_main import Ui_MainWindow
+from .ui_main import Ui_MainWindow
 
 if not QApplication.instance():
     app = QApplication([])
@@ -211,25 +209,8 @@ class MainWindow(QMainWindow):
         sys.exit(0)
 
 
-def main():
-    parser = ArgumentParser(description="A simple scrcpy client")
-    parser.add_argument(
-        "-m",
-        "--max_width",
-        type=int,
-        default=800,
-        help="Set max width of the window, default 800",
-    )
-    parser.add_argument(
-        "-d",
-        "--device",
-        type=str,
-        help="Select device manually (device serial required)",
-    )
-    parser.add_argument("--encoder_name", type=str, help="Encoder name to use")
-    args = parser.parse_args()
-
-    m = MainWindow(args.max_width, args.device, args.encoder_name)
+def run():
+    m = MainWindow(800, "", "")
     m.show()
     try:
         m.client.start()
@@ -243,4 +224,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run()
