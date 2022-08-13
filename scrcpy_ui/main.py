@@ -191,6 +191,8 @@ class MainWindow(QMainWindow):
         self.client.flip = self.ui.flip.isChecked()
 
     def on_click_home(self):
+        if not getattr(self, "client", None) or not self.client.alive or self.client.device.serial != self.ui.combo_device.currentText():
+            return
         self.client.control.keycode(scrcpy.KEYCODE_HOME, scrcpy.ACTION_DOWN)
         self.client.control.keycode(scrcpy.KEYCODE_HOME, scrcpy.ACTION_UP)
 
@@ -208,6 +210,8 @@ class MainWindow(QMainWindow):
         self.on_init()
 
     def on_click_back(self):
+        if not getattr(self, "client", None) or not self.client.alive or self.client.device.serial != self.ui.combo_device.currentText():
+            return
         self.client.control.back_or_turn_screen_on(scrcpy.ACTION_DOWN)
         self.client.control.back_or_turn_screen_on(scrcpy.ACTION_UP)
 
