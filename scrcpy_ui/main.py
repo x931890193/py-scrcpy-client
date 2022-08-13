@@ -3,6 +3,13 @@ import sys
 import threading
 import traceback
 from typing import Optional
+import os
+import PySide6
+dirname = os.path.dirname(PySide6.__file__)
+
+plugin_path = os.path.join(dirname, 'plugins', 'platforms')
+
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = plugin_path
 
 import numpy as np
 from PySide6.QtCore import Signal
@@ -210,7 +217,7 @@ class MainWindow(QMainWindow):
 
 
 def run():
-    m = MainWindow(800, "", "")
+    m = MainWindow(800, "", None)
     m.show()
     try:
         m.client.start()

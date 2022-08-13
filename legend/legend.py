@@ -13,6 +13,7 @@ class Legend(object):
         while self.parent.running and self.parent.client.alive:
             # TODO
             frame = self.parent.q.get()
+            cv2.imwrite("111.png", frame)
             self.client.device.click(*self.fix_loc)
             time.sleep(2)
         self.parent.running = False
