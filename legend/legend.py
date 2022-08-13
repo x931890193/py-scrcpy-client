@@ -1,7 +1,6 @@
 import time
 import cv2
 
-
 class Legend(object):
     fix_loc = (300, 1000)
 
