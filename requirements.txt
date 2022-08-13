@@ -1,5 +1,5 @@
 adbutils==1.0.1
 opencv-python==4.5.1.48
-PySide==6.1.3
+PySide6==6.1.3
 numpy==1.18.1
 
