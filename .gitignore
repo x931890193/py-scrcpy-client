@@ -137,20 +137,3 @@ bigImg_upgrade/
 .idea/
 .vscode/
 output
-
-# image file
-scripts/test/battle-info/
-scripts/test/axie-info/
-scripts/test/call-bird/
-screenshot/
-scripts/test/battle-ocr/
-scripts/buffs/
-scripts/buffs_generate/
-scripts/for_ocr_accuracy/
-scripts/ocr_error_test/
-buff_test/
-test_img/
-scripts/ic15_test_report_4_error.txt
-
-# cache data
-workers/client_status/simulator_axie/data.json
