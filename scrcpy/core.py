@@ -3,6 +3,7 @@ import socket
 import struct
 import threading
 import time
+import traceback
 from time import sleep
 from typing import Any, Callable, Optional, Tuple, Union
 
@@ -215,9 +216,13 @@ class Client:
             try:
                 raw_h264 = self.__video_socket.recv(0x10000)
                 packets = codec.parse(raw_h264)
-                # if not packets:
-                #     self.alive = False
-                #     break
+                if not packets:
+                    try:
+                        adb.device(self.device.serial).get_serialno()
+                    except AdbError as e:
+                        traceback.print_exc()
+                        self.alive = False
+                        break
                 for packet in packets:
                     frames = codec.decode(packet)
                     for frame in frames:

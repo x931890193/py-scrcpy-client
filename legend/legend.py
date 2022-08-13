@@ -1,6 +1,7 @@
 import time
 import cv2
 
+
 class Legend(object):
     fix_loc = (300, 1000)
 
@@ -16,4 +17,3 @@ class Legend(object):
             self.client.device.click(*self.fix_loc)
             time.sleep(2)
         self.parent.running = False
-        self.parent.client.alive = False

@@ -123,7 +123,7 @@ class Ui_MainWindow(object):
         self.label.setText(
             QCoreApplication.translate(
                 "MainWindow",
-                '<html><head/><body><p><span style=" font-size:20pt;">Loading</span></p></body></html>',
+                '<html><head/><body><p><span style=" font-size:20pt;">Wait Connect....</span></p></body></html>',
                 None,
             )
         )
